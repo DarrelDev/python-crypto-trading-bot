@@ -37,3 +37,16 @@ Make sure you have Python installed. Then install the required library:
 
 ```bash
 pip install ccxt
+```
+Usage
+Run the bot directly from your terminal:
+
+```Bash
+python bot_v4.py
+```
+Note: By default, the bot runs in Simulation Mode with a dummy balance of IDR 100,000,000. To go live, configure your API Keys in the environment variables (Do not hardcode keys).
+
+⚠️ Disclaimer
+This project is for educational purposes only. Cryptocurrency trading involves high risk. I am not responsible for any financial losses incurred while using this software. Always DYOR (Do Your Own Research) and test thoroughly before using real money.
+
+Built with ❤️ by a 15 y/o Arch Linux User.
