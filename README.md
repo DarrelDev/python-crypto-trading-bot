@@ -1,4 +1,4 @@
-# 🚀 Algo-Trading Bot V4 (Python)
+# 📈 Quantitative Trading Engine: Dynamic Noise Filtering Algorithm (Python)
 
 A lightweight, automated cryptocurrency trading bot designed for the **Indodax** exchange. Built with Python and the **CCXT** library, this bot utilizes a **threshold-based strategy** to filter market noise and execute trades based on real-time moving averages.
 
@@ -13,6 +13,15 @@ A lightweight, automated cryptocurrency trading bot designed for the **Indodax**
   - **Stop Loss Protection:** Triggers a sell order if the price drops below the safety margin to minimize losses.
 - **Fee Simulation:** Includes a built-in calculator for exchange fees (0.3%) to provide realistic Net Profit/Loss (PnL) estimates.
 - **Real-Time Logging:** Displays live transaction data, profit tracking, and signal status directly in the terminal.
+
+## 🧮 Mathematical Model
+This engine utilizes a statistical approach to filter market noise (volatility) using a dynamic threshold mechanism.
+
+The decision logic is based on the deviation from the Simple Moving Average (SMA):
+- **Upper Band:** $SMA \times (1 + \delta)$
+- **Lower Band:** $SMA \times (1 - \delta)$
+
+Where $\delta$ (delta) is the configurable noise threshold coefficient (default: `0.0001`), designed to prevent "whipsaw" losses during sideways market conditions.
 
 ## 🛠️ Tech Stack
 
@@ -49,4 +58,4 @@ Note: By default, the bot runs in Simulation Mode with a dummy balance of IDR 10
 ⚠️ Disclaimer
 This project is for educational purposes only. Cryptocurrency trading involves high risk. I am not responsible for any financial losses incurred while using this software. Always DYOR (Do Your Own Research) and test thoroughly before using real money.
 
-Built with ❤️ by a 15 y/o Python Developer.
+© 2026 DarrelDev. Open source for educational and research purposes.
