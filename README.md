@@ -1,61 +1,51 @@
-# 📈 Quantitative Trading Engine: Dynamic Noise Filtering Algorithm (Python)
+# 📈 Quantitative Trading Engine: Dynamic Noise Filtering Algorithm
 
-A lightweight, automated cryptocurrency trading bot designed for the **Indodax** exchange. Built with Python and the **CCXT** library, this bot utilizes a **threshold-based strategy** to filter market noise and execute trades based on real-time moving averages.
+A Python-based algorithmic trading engine designed for the **Indodax** exchange. This system implements a statistical noise-filtering mechanism to identify true market trends while mitigating false signals caused by high-frequency volatility.
 
-> **Status:** 🟢 Active (Simulation Mode)
+> **Status:** 🟢 Active (Simulation Mode) | **Strategy:** SMA Deviation Thresholding
+
+## 🧮 Mathematical Model
+
+The core logic utilizes a **Dynamic Thresholding** approach to determine entry and exit points. Unlike standard Moving Average crossovers, this engine creates a "Noise Deadband" around the Simple Moving Average (SMA).
+
+The trading bands are calculated as follows:
+
+$$Upper Band = SMA_n \times (1 + \delta)$$
+$$Lower Band = SMA_n \times (1 - \delta)$$
+
+Where:
+- $SMA_n$: Simple Moving Average over period $n$ (Default: 10).
+- $\delta$: Noise Threshold Coefficient (Default: `0.0001` or 0.01%).
+
+**Signal Logic:**
+- **Long Entry (Buy):** $Price > Upper Band$ (Momentum Breakout confirmed).
+- **Long Exit (Sell):** $Price < Lower Band$ (Trend Reversal confirmed).
+- **Hold:** $Lower Band \le Price \le Upper Band$ (Market Noise).
 
 ## 🔥 Key Features
 
-- **Smart Noise Filtering:** Uses a dynamic threshold (`0.01%`) to ignore minor price fluctuations and prevent over-trading (whipsaw).
-- **Moving Average Logic:** Makes decisions based on a 10-period moving average rather than raw instantaneous prices.
+- **Statistical Noise Filter:** Filters out micro-volatility to prevent "whipsaw" losses during sideways markets.
+- **Latency Management:** Implements API rate-limiting to ensure stable execution.
 - **Risk Management:**
-  - **Dynamic Take Profit:** Automatically sells when price breaks the upper resistance.
-  - **Stop Loss Protection:** Triggers a sell order if the price drops below the safety margin to minimize losses.
-- **Fee Simulation:** Includes a built-in calculator for exchange fees (0.3%) to provide realistic Net Profit/Loss (PnL) estimates.
-- **Real-Time Logging:** Displays live transaction data, profit tracking, and signal status directly in the terminal.
+  - **Dynamic Take Profit:** Rides the trend until a reversal signal is detected.
+  - **Stop Loss Mechanism:** Automatically exits positions when the price breaches the lower confidence band.
+- **Transaction Cost Analysis:** Built-in fee simulation (0.3% maker/taker) for accurate Net PnL calculation.
 
-## 🧮 Mathematical Model
-This engine utilizes a statistical approach to filter market noise (volatility) using a dynamic threshold mechanism.
+## 🛠️ Technology Stack
 
-The decision logic is based on the deviation from the Simple Moving Average (SMA):
-- **Upper Band:** $SMA \times (1 + \delta)$
-- **Lower Band:** $SMA \times (1 - \delta)$
+- **Core Logic:** Python 3.10+
+- **Market Data:** `ccxt` (CryptoCurrency eXchange Trading Library)
+- **Data Structure:** List-based deque for O(1) time complexity on sliding window operations.
 
-Where $\delta$ (delta) is the configurable noise threshold coefficient (default: `0.0001`), designed to prevent "whipsaw" losses during sideways market conditions.
-
-## 🛠️ Tech Stack
-
-- **Language:** Python 3.10+
-- **Core Library:** `ccxt` (CryptoCurrency eXchange Trading Library)
-- **Environment:** Cross-Platform (Windows/Linux Compatible)
-  
-## ⚡ How It Works (The Logic)
-
-1.  **Fetch Data:** Pulls real-time `BTC/IDR` ticker data from Indodax via API.
-2.  **Calculate Average:** Stores the last 10 price points to calculate a Simple Moving Average (SMA).
-3.  **Determine Bands:** Sets dynamic Upper and Lower bands based on the configured threshold.
-4.  **Execute Trade:**
-    - **BUY:** When price > Upper Band (Momentum Breakout).
-    - **SELL:** When price < Lower Band (Panic/Correction).
-    - **HOLD:** When price is within the "Noise Zone" (Deadband).
-
-## 🚀 Getting Started
+## ⚡ Execution
 
 ### Prerequisites
-Make sure you have Python installed. Then install the required library:
-
 ```bash
 pip install ccxt
 ```
-Usage
-Run the bot directly from your terminal:
-
+### Run Simulation
 ```Bash
 python bot_v4.py
 ```
-Note: By default, the bot runs in Simulation Mode with a dummy balance of IDR 100,000,000. To go live, configure your API Keys in the environment variables (Do not hardcode keys).
-
-⚠️ Disclaimer
-This project is for educational purposes only. Cryptocurrency trading involves high risk. I am not responsible for any financial losses incurred while using this software. Always DYOR (Do Your Own Research) and test thoroughly before using real money.
 
 © 2026 DarrelDev. Open source for educational and research purposes.
