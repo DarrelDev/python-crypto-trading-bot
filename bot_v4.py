@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Crypto Algo-Trading Bot V4 (Simulation Mode)
-Author: [Your Name / GitHub Username]
+Author: DarrelDev
 Description: 
     Automated trading script utilizing Simple Moving Average (SMA) 
     logic with a dynamic noise threshold (deadband) to filter market volatility.
@@ -123,4 +123,5 @@ while True:
 
     except Exception as e:
         print(f"[ERROR] Engine Glitch: {e}")
+
         time.sleep(5)
