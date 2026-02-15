@@ -21,7 +21,7 @@ TRADING_FEE = 0.003           # 0.3% exchange fee per transaction
 SIMULATION_BALANCE_IDR = 100_000_000  # Initial Capital: IDR 100 Million
 
 # --- INITIALIZATION ---
-print("--- ALGO-TRADING BOT V4: NOISE FILTER ENABLED ---")
+print(">>> QUANTITATIVE ENGINE INITIALIZED: Dynamic Thresholding Active")
 print(f"Target Pair: {PAIR}")
 print(f"Initial Capital: IDR {SIMULATION_BALANCE_IDR:,.0f}")
 print("-------------------------------------------------")
@@ -125,3 +125,4 @@ while True:
         print(f"[ERROR] Engine Glitch: {e}")
 
         time.sleep(5)
+
