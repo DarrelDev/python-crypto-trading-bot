@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Crypto Algo-Trading Bot V4 (Simulation Mode)
-Author: DarrelDev
+Quantitative Trading Engine: Dynamic Noise Filtering
+Author: DarrelDev (Aspiring Quant Developer)
+License: MIT
 Description: 
-    Automated trading script utilizing Simple Moving Average (SMA) 
+    Automated trading script utilizing Statistical Moving Average (SMA) 
     logic with a dynamic noise threshold (deadband) to filter market volatility.
-    Designed for the Indodax exchange via CCXT.
 """
 
 import ccxt
@@ -125,4 +125,5 @@ while True:
         print(f"[ERROR] Engine Glitch: {e}")
 
         time.sleep(5)
+
 
