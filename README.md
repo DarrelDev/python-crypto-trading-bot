@@ -18,8 +18,8 @@ A lightweight, automated cryptocurrency trading bot designed for the **Indodax**
 
 - **Language:** Python 3.10+
 - **Core Library:** `ccxt` (CryptoCurrency eXchange Trading Library)
-- **Environment:** Arch Linux (Development)
-
+- **Environment:** Cross-Platform (Windows/Linux Compatible)
+  
 ## ⚡ How It Works (The Logic)
 
 1.  **Fetch Data:** Pulls real-time `BTC/IDR` ticker data from Indodax via API.
@@ -49,4 +49,4 @@ Note: By default, the bot runs in Simulation Mode with a dummy balance of IDR 10
 ⚠️ Disclaimer
 This project is for educational purposes only. Cryptocurrency trading involves high risk. I am not responsible for any financial losses incurred while using this software. Always DYOR (Do Your Own Research) and test thoroughly before using real money.
 
-Built with ❤️ by a 15 y/o Arch Linux User.
+Built with ❤️ by a 15 y/o Python Developer.
